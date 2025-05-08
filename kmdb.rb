@@ -75,18 +75,75 @@
 
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
-# TODO!
 
-
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model.
-# TODO!
-
-
+# TODO! -- DONE w/o code
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
-# TODO!
+
+#INSERT INTO studios (name) VALUES ("Warner Bros."); -- 1
+new_studio = Studio.new
+new_studio["name"] = "Warner Bros."
+new_studio.save
+
+#INSERT INTO movies (title, year_released, rated, studio_id)
+#VALUES ("Batman Begins", 2005, "PG-13", 1);
+
+new_movie = Movie.new
+new_movie["title"] = "Batman Begins"
+new_movie["year_released"] = "2005"
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = new_studio["id"]
+new_movie.save
+
+puts new_movie.inspect
+
+#INSERT INTO movies (title, year_released, rated, studio_id)
+#VALUES ("The Dark Knight", 2008, "PG-13", 1);
+
+#INSERT INTO movies (title, year_released, rated, studio_id)
+#VALUES ("The Dark Knight Rises", 2012, "PG-13", 1);
+
+#-- Batman Begins
+#INSERT INTO actors (name) VALUES ("Christian Bale"); -- 1
+#INSERT INTO actors (name) VALUES ("Michael Caine"); -- 2
+#INSERT INTO actors (name) VALUES ("Liam Neeson");  -- 3
+#INSERT INTO actors (name) VALUES ("Katie Holmes");  -- 4
+#INSERT INTO actors (name) VALUES ("Gary Oldman");  -- 5
+
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 1, "Bruce Wayne");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 2, "Alfred");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 3, "Ra's Al Ghul");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 4, "Rachel Dawes");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 5, "Commissioner Gordon");
+
+#-- The Dark Knight
+#INSERT INTO actors (name) VALUES ("Heath Ledger"); -- 6
+#INSERT INTO actors (name) VALUES ("Aaron Eckhart"); -- 7
+#INSERT INTO actors (name) VALUES ("Maggie Gyllenhaal"); -- 8
+
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 1, "Bruce Wayne");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 6, "Joker");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 7, "Harvey Dent");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 2, "Alfred");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 8, "Rachel Dawes");
+
+#-- The Dark Knight Rises
+#INSERT INTO actors (name) VALUES ("Tom Hardy"); -- 9
+#INSERT INTO actors (name) VALUES ("Joseph Gordon-Levitt"); -- 10
+#INSERT INTO actors (name) VALUES ("Anne Hathaway"); -- 11
+
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 1, "Bruce Wayne");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 5, "Commissioner Gordon");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 9, "Bane");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 10, "John Blake");
+#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 11, "Selina Kyle");
 
 # Prints a header for the movies output
 puts "Movies"
