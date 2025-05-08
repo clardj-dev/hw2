@@ -87,13 +87,9 @@ Role.destroy_all
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 
-#INSERT INTO studios (name) VALUES ("Warner Bros."); -- 1
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
 new_studio.save
-
-#INSERT INTO movies (title, year_released, rated, studio_id)
-#VALUES ("Batman Begins", 2005, "PG-13", 1);
 
 new_movie = Movie.new
 new_movie["title"] = "Batman Begins"
@@ -102,48 +98,182 @@ new_movie["rated"] = "PG-13"
 new_movie["studio_id"] = new_studio["id"]
 new_movie.save
 
-puts new_movie.inspect
+#puts new_movie.inspect
 
-#INSERT INTO movies (title, year_released, rated, studio_id)
-#VALUES ("The Dark Knight", 2008, "PG-13", 1);
+new_movie2 = Movie.new
+new_movie2["title"] = "The Dark Knight"
+new_movie2["year_released"] = "2008"
+new_movie2["rated"] = "PG-13"
+new_movie2["studio_id"] = new_studio["id"]
+new_movie2.save
 
-#INSERT INTO movies (title, year_released, rated, studio_id)
-#VALUES ("The Dark Knight Rises", 2012, "PG-13", 1);
+#puts new_movie2.inspect
+
+new_movie3 = Movie.new
+new_movie3["title"] = "The Dark Knight Rises"
+new_movie3["year_released"] = "2012"
+new_movie3["rated"] = "PG-13"
+new_movie3["studio_id"] = new_studio["id"]
+new_movie3.save
+
+#puts new_movie3.inspect
+#puts all_movies = Movie.all.inspect
+#puts all_movies.inspect
 
 #-- Batman Begins
-#INSERT INTO actors (name) VALUES ("Christian Bale"); -- 1
-#INSERT INTO actors (name) VALUES ("Michael Caine"); -- 2
-#INSERT INTO actors (name) VALUES ("Liam Neeson");  -- 3
-#INSERT INTO actors (name) VALUES ("Katie Holmes");  -- 4
-#INSERT INTO actors (name) VALUES ("Gary Oldman");  -- 5
+new_actor = Actor.new
+new_actor["name"] = "Christian Bale"
+new_actor.save
 
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 1, "Bruce Wayne");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 2, "Alfred");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 3, "Ra's Al Ghul");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 4, "Rachel Dawes");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 5, "Commissioner Gordon");
+new_actor2 = Actor.new
+new_actor2["name"] = "Michael Caine"
+new_actor2.save
+
+new_actor3 = Actor.new
+new_actor3["name"] = "Liam Neeson"
+new_actor3.save
+
+new_actor4 = Actor.new
+new_actor4["name"] = "Katie Holmes"
+new_actor4.save
+
+new_actor5 = Actor.new
+new_actor5["name"] = "Gary Oldman"
+new_actor5.save
+
+#all_actors = Actor.all
+#puts all_actors.inspect
+
+new_role = Role.new
+new_role["movie_id"] = new_movie["id"]
+new_role["actor_id"] = new_actor["id"]
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+
+new_role2 = Role.new
+new_role2["movie_id"] = new_movie["id"]
+new_role2["actor_id"] = new_actor2["id"]
+new_role2["character_name"] = "Alfred"
+new_role2.save
+
+new_role3 = Role.new
+new_role3["movie_id"] = new_movie["id"]
+new_role3["actor_id"] = new_actor3["id"]
+new_role3["character_name"] = "Ra's Al Ghul"
+new_role3.save
+
+new_role4 = Role.new
+new_role4["movie_id"] = new_movie["id"]
+new_role4["actor_id"] = new_actor4["id"]
+new_role4["character_name"] = "Rachel Dawes"
+new_role4.save
+
+new_role5 = Role.new
+new_role5["movie_id"] = new_movie["id"]
+new_role5["actor_id"] = new_actor5["id"]
+new_role5["character_name"] = "Commissioner Gordon"
+new_role5.save
+
+#all_roles = Role.all
+#puts all_roles.inspect
 
 #-- The Dark Knight
-#INSERT INTO actors (name) VALUES ("Heath Ledger"); -- 6
-#INSERT INTO actors (name) VALUES ("Aaron Eckhart"); -- 7
-#INSERT INTO actors (name) VALUES ("Maggie Gyllenhaal"); -- 8
+new_actor6 = Actor.new
+new_actor6["name"] = "Heath Ledger"
+new_actor6.save
 
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 1, "Bruce Wayne");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 6, "Joker");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 7, "Harvey Dent");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 2, "Alfred");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 8, "Rachel Dawes");
+new_actor7 = Actor.new
+new_actor7["name"] = "Aaron Eckhart"
+new_actor7.save
+
+new_actor8 = Actor.new
+new_actor8["name"] = "Maggie Gyllenhaal"
+new_actor8.save
+
+#all_actors = Actor.all
+#puts all_actors.inspect
+
+new_role6 = Role.new
+new_role6["movie_id"] = new_movie2["id"]
+new_role6["actor_id"] = new_actor["id"]
+new_role6["character_name"] = "Bruce Wayne"
+new_role6.save
+
+new_role7 = Role.new
+new_role7["movie_id"] = new_movie2["id"]
+new_role7["actor_id"] = new_actor6["id"]
+new_role7["character_name"] = "Joker"
+new_role7.save
+
+new_role8 = Role.new
+new_role8["movie_id"] = new_movie2["id"]
+new_role8["actor_id"] = new_actor7["id"]
+new_role8["character_name"] = "Harvey Dent"
+new_role8.save
+
+new_role9 = Role.new
+new_role9["movie_id"] = new_movie2["id"]
+new_role9["actor_id"] = new_actor2["id"]
+new_role9["character_name"] = "Alfred"
+new_role9.save
+
+new_role10 = Role.new
+new_role10["movie_id"] = new_movie2["id"]
+new_role10["actor_id"] = new_actor8["id"]
+new_role10["character_name"] = "Rachel Dawes"
+new_role10.save
+
+#all_roles = Role.all
+#puts all_roles.inspect
 
 #-- The Dark Knight Rises
-#INSERT INTO actors (name) VALUES ("Tom Hardy"); -- 9
-#INSERT INTO actors (name) VALUES ("Joseph Gordon-Levitt"); -- 10
-#INSERT INTO actors (name) VALUES ("Anne Hathaway"); -- 11
+new_actor9 = Actor.new
+new_actor9["name"] = "Tom Hardy"
+new_actor9.save
 
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 1, "Bruce Wayne");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 5, "Commissioner Gordon");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 9, "Bane");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 10, "John Blake");
-#INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 11, "Selina Kyle");
+new_actor10 = Actor.new
+new_actor10["name"] = "Joseph Gordon-Levitt"
+new_actor10.save
+
+new_actor11 = Actor.new
+new_actor11["name"] = "Anne Hathaway"
+new_actor11.save
+
+#all_actors = Actor.all
+#puts all_actors.inspect
+
+new_role11 = Role.new
+new_role11["movie_id"] = new_movie3["id"]
+new_role11["actor_id"] = new_actor["id"]
+new_role11["character_name"] = "Bruce Wayne"
+new_role11.save
+
+new_role12 = Role.new
+new_role12["movie_id"] = new_movie3["id"]
+new_role12["actor_id"] = new_actor5["id"]
+new_role12["character_name"] = "Commissioner Gordon"
+new_role12.save
+
+new_role13 = Role.new
+new_role13["movie_id"] = new_movie3["id"]
+new_role13["actor_id"] = new_actor9["id"]
+new_role13["character_name"] = "Bane"
+new_role13.save
+
+new_role14 = Role.new
+new_role14["movie_id"] = new_movie3["id"]
+new_role14["actor_id"] = new_actor10["id"]
+new_role14["character_name"] = "John Blake"
+new_role14.save
+
+new_role15 = Role.new
+new_role15["movie_id"] = new_movie3["id"]
+new_role15["actor_id"] = new_actor11["id"]
+new_role15["character_name"] = "Selina Kyle"
+new_role15.save
+
+#all_roles = Role.all
+#puts all_roles.inspect
 
 # Prints a header for the movies output
 puts "Movies"
@@ -151,7 +281,13 @@ puts "======"
 puts ""
 
 # Query the movies data and loop through the results to display the movies output.
-# TODO!
+
+all_movies = Movie.all
+
+for movie in all_movies
+    studio = Studio.find_by({ "id" => movie["studio_id"] })
+    puts "#{movie["title"]} #{movie["year_released"]} #{movie["rated"]} #{studio["name"]}"
+end
 
 # Prints a header for the cast output
 puts ""
@@ -160,4 +296,11 @@ puts "========"
 puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
+
+all_roles = Role.all
+
+for role in all_roles
+    movie = Movie.find_by({ "id" => role["movie_id"] })
+    actor = Actor.find_by({ "id" => role["actor_id"] })
+    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
+end
